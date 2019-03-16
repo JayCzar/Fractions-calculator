@@ -79,6 +79,6 @@ public class Fraction {
 		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
 		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
 		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
-		System.out.println("The product of your fractions is: " + num2.divide(num2,num1));
+		System.out.println("The quotient of your fractions is: " + num2.divide(num2,num1));
 	}	
 	}
