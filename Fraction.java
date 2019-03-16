@@ -41,7 +41,13 @@ public class Fraction {
 		denominator = num1.denominator*snum.denominator;
 		return simplified(numerator, denominator);
 	}
-	
+	// method to divide two fractions
+	public String divide(Fraction snum, Fraction num1) {	
+		int numerator, denominator;
+		numerator = num1.numerator * snum.denominator;
+		denominator = num1.denominator*snum.numerator;
+		return simplified(numerator, denominator);
+	}
 	// method to return a simplified form of a fraction given numerator and denominator
 	public String simplified(int n, int d) {
 		for (int i=2; i<=Math.abs(n); i++) {
@@ -72,6 +78,7 @@ public class Fraction {
 		
 		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
 		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
-		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));	
+		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
+		System.out.println("The product of your fractions is: " + num2.divide(num2,num1));
 	}	
 	}
