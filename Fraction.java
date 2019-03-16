@@ -1,4 +1,4 @@
-package mycode;
+//package mycode;
 import java.util.Scanner;
 public class Fraction {
 	//attributes
