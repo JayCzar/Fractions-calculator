@@ -3,17 +3,17 @@ import java.util.Scanner;
 public class Fraction {
 	//attributes
 	private int numerator;
-	private int denominator;	
-	
+	private int denominator;
+
 	// scanner object
 	Scanner input = new Scanner(System.in);
-	
+
 	//constructors
 	public Fraction() {
 		this(0,0);
 	}
 	public Fraction(int n) {
-		this(a,0);
+		this(n,0);
 	}
 	public Fraction(int n, int d) {
 		if(d==0) {
@@ -23,10 +23,10 @@ public class Fraction {
 		setDenominator(d);
 		setNumerator(n);
 	}
-	
+
 	//setter methods
 	public void setDenominator(int d) {
-		this.denominator = d;		
+		this.denominator = d;
 	}
 	public void setNumerator(int n) {
 		this.numerator = n;
@@ -39,11 +39,11 @@ public class Fraction {
 		return this.denominator;
 	}
 	//methods
-	public Fraction add(Fraction fr1, Fraction fr2) {		
+	public Fraction add(Fraction fr1, Fraction fr2) {
 		int numerator, denominator;
 		numerator = fr2.numerator * fr1.denominator + fr1.numerator*fr2.denominator;
 		denominator = fr2.denominator*fr1.denominator;
-		return simplified(numerator, denominator);
+	  return simplified(numerator, denominator);
 	}
 	// method to subtract to fractions
 	public Fraction subtract(Fraction fr1, Fraction fr2) {
@@ -53,14 +53,14 @@ public class Fraction {
 		return simplified(numerator, denominator);
 	}
 	//method to multiply two fractions
-	public Fraction multiply(Fraction fr1, Fraction fr2) {	
+	public Fraction multiply(Fraction fr1, Fraction fr2) {
 		int numerator, denominator;
 		numerator = fr2.numerator * fr1.numerator;
 		denominator = fr2.denominator*fr1.denominator;
 		return simplified(numerator, denominator);
 	}
 	// method to divide two fractions
-	public Fraction divide(Fraction fr1, Fraction fr2) {	
+	public Fraction divide(Fraction fr1, Fraction fr2) {
 		int numerator, denominator;
 		numerator = fr2.numerator * fr1.denominator;
 		denominator = fr2.denominator*fr1.numerator;
@@ -78,18 +78,32 @@ public class Fraction {
 		Fraction result = new Fraction(n,d);
 		return result;
 	}
+
+	//string representation of Fraction class
+  public String toString(){
+		if(this.getNumerator() == 0){
+			return "0";
+		}else if(this.getNumerator() > this.getDenominator()){
+			String a = Integer.toString(this.getNumerator()%this.getDenominator());
+			String b = Integer.toString(this.getNumerator()/this.getDenominator());
+			String c = Integer.toString(this.getDenominator());
+			return b + " and " + a + "/" + c;
+		}
+		return Integer.toString(this.getNumerator()) + "/" + Integer.toString(this.getDenominator());
+	}
+
 	// main method
-//	public static void main(String args[]) {
-//		
-//		Scanner input = new Scanner(System.in);
-//		Fraction num2;
-//		System.out.println("Enter numerator, denominator of your fraction");
-//		num2 = new Fraction(input.nextInt(),input.nextInt());
-//		Fraction num1 = new Fraction();
-//		
-//		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
-//		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
-//		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
-//		System.out.println("The quotient of your fractions is: " + num2.divide(num2,num1));
-//	}	
-//	}
+	public static void main(String args[]) {
+
+		Scanner input = new Scanner(System.in);
+		Fraction num2;
+		// System.out.println("Enter numerator, denominator of your fraction");
+		num2 = new Fraction(6,8);
+		Fraction num1 = new Fraction(6,14);
+
+		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
+		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
+		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
+		System.out.println("The quotient of your fractions is: " + num2.divide(num2,num1));
+	}
+	}
