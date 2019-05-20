@@ -10,46 +10,64 @@ public class Fraction {
 	
 	//constructors
 	public Fraction() {
-		System.out.println("Enter the next numerator, denominator of your fraction");
-		numerator = input.nextInt();
-		denominator = input.nextInt();
+		this(0,0);
 	}
-	public Fraction(int a, int b) {
-		numerator = a;
-		denominator = b;
+	public Fraction(int n) {
+		this(a,0);
+	}
+	public Fraction(int n, int d) {
+		if(d==0) {
+			System.out.println("Denominator cannot be zero");
+			System.exit(1);
+		}
+		setDenominator(d);
+		setNumerator(n);
 	}
 	
-	
+	//setter methods
+	public void setDenominator(int d) {
+		this.denominator = d;		
+	}
+	public void setNumerator(int n) {
+		this.numerator = n;
+	}
+	//getter methods
+	public int getNumerator() {
+		return this.numerator;
+	}
+	public int getDenominator() {
+		return this.denominator;
+	}
 	//methods
-	public String add(Fraction snum, Fraction num1) {		
+	public Fraction add(Fraction fr1, Fraction fr2) {		
 		int numerator, denominator;
-		numerator = num1.numerator * snum.denominator + snum.numerator*num1.denominator;
-		denominator = num1.denominator*snum.denominator;
+		numerator = fr2.numerator * fr1.denominator + fr1.numerator*fr2.denominator;
+		denominator = fr2.denominator*fr1.denominator;
 		return simplified(numerator, denominator);
 	}
 	// method to subtract to fractions
-	public String subtract(Fraction snum, Fraction num1) {
+	public Fraction subtract(Fraction fr1, Fraction fr2) {
 		int numerator, denominator;
-		numerator = num1.numerator * snum.denominator - snum.numerator*num1.denominator;
-		denominator = num1.denominator*snum.denominator;
+		numerator = fr2.numerator * fr1.denominator - fr1.numerator*fr2.denominator;
+		denominator = fr2.denominator*fr1.denominator;
 		return simplified(numerator, denominator);
 	}
 	//method to multiply two fractions
-	public String multiply(Fraction snum, Fraction num1) {	
+	public Fraction multiply(Fraction fr1, Fraction fr2) {	
 		int numerator, denominator;
-		numerator = num1.numerator * snum.numerator;
-		denominator = num1.denominator*snum.denominator;
+		numerator = fr2.numerator * fr1.numerator;
+		denominator = fr2.denominator*fr1.denominator;
 		return simplified(numerator, denominator);
 	}
 	// method to divide two fractions
-	public String divide(Fraction snum, Fraction num1) {	
+	public Fraction divide(Fraction fr1, Fraction fr2) {	
 		int numerator, denominator;
-		numerator = num1.numerator * snum.denominator;
-		denominator = num1.denominator*snum.numerator;
+		numerator = fr2.numerator * fr1.denominator;
+		denominator = fr2.denominator*fr1.numerator;
 		return simplified(numerator, denominator);
 	}
 	// method to return a simplified form of a fraction given numerator and denominator
-	public String simplified(int n, int d) {
+	public Fraction simplified(int n, int d) {
 		for (int i=2; i<=Math.abs(n); i++) {
 			if ( n%i == 0 && d%i == 0) {
 				d = d/i;
@@ -57,28 +75,21 @@ public class Fraction {
 				i = 1;
 			}
 		}
-		if (n<=d && n!=0) {
-			return Integer.toString(n) + "/" + Integer.toString(d);
-		}
-		else if( n==0 ) {
-			return Integer.toString(0);
-		}
-		else {
-			return Integer.toString(n/d) + "/" + Integer.toString(n%d) + "/" + Integer.toString(d);
-		}
+		Fraction result = new Fraction(n,d);
+		return result;
 	}
 	// main method
-	public static void main(String args[]) {
-		
-		Scanner input = new Scanner(System.in);
-		Fraction num2;
-		System.out.println("Enter numerator, denominator of your fraction");
-		num2 = new Fraction(input.nextInt(),input.nextInt());
-		Fraction num1 = new Fraction();
-		
-		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
-		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
-		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
-		System.out.println("The quotient of your fractions is: " + num2.divide(num2,num1));
-	}	
-	}
+//	public static void main(String args[]) {
+//		
+//		Scanner input = new Scanner(System.in);
+//		Fraction num2;
+//		System.out.println("Enter numerator, denominator of your fraction");
+//		num2 = new Fraction(input.nextInt(),input.nextInt());
+//		Fraction num1 = new Fraction();
+//		
+//		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
+//		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
+//		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
+//		System.out.println("The quotient of your fractions is: " + num2.divide(num2,num1));
+//	}	
+//	}
