@@ -78,7 +78,7 @@ public class Fraction {
 		Fraction result = new Fraction(n,d);
 		return result;
 	}
-<<<<<<< HEAD
+
 
 	//string representation of Fraction class
   public String toString(){
@@ -94,24 +94,12 @@ public class Fraction {
 	}
 
 	// main method
-=======
-//	main method
->>>>>>> master
 	public static void main(String args[]) {
-
 		Scanner input = new Scanner(System.in);
 		Fraction num2;
-<<<<<<< HEAD
 		//System.out.println("Enter numerator, denominator of your fraction");
 		num2 = new Fraction(6,8);
 		Fraction num1 = new Fraction(6,14);
-=======
-		System.out.println("Enter numerator, denominator of your fraction 1");
-		num2 = new Fraction(input.nextInt(),input.nextInt());
-		System.out.println("Enter numerator, denominator of your fraction 2");
-		Fraction num1 = new Fraction(input.nextInt(),input.nextInt());
->>>>>>> master
-
 		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
 		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
 		System.out.println("The product of your fractions is: " + num2.multiply(num2,num1));
