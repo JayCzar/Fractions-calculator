@@ -43,7 +43,7 @@ public class Fraction {
 		int numerator, denominator;
 		numerator = fr2.numerator * fr1.denominator + fr1.numerator*fr2.denominator;
 		denominator = fr2.denominator*fr1.denominator;
-		return simplified(numerator, denominator);
+	  return simplified(numerator, denominator);
 	}
 	// method to subtract to fractions
 	public Fraction subtract(Fraction fr1, Fraction fr2) {
@@ -78,15 +78,39 @@ public class Fraction {
 		Fraction result = new Fraction(n,d);
 		return result;
 	}
+<<<<<<< HEAD
+
+	//string representation of Fraction class
+  public String toString(){
+		if(this.getNumerator() == 0){
+			return "0";
+		}else if(this.getNumerator() > this.getDenominator()){
+			String a = Integer.toString(this.getNumerator()%this.getDenominator());
+			String b = Integer.toString(this.getNumerator()/this.getDenominator());
+			String c = Integer.toString(this.getDenominator());
+			return b + " and " + a + "/" + c;
+		}
+		return Integer.toString(this.getNumerator()) + "/" + Integer.toString(this.getDenominator());
+	}
+
+	// main method
+=======
 //	main method
+>>>>>>> master
 	public static void main(String args[]) {
 
 		Scanner input = new Scanner(System.in);
 		Fraction num2;
+<<<<<<< HEAD
+		//System.out.println("Enter numerator, denominator of your fraction");
+		num2 = new Fraction(6,8);
+		Fraction num1 = new Fraction(6,14);
+=======
 		System.out.println("Enter numerator, denominator of your fraction 1");
 		num2 = new Fraction(input.nextInt(),input.nextInt());
 		System.out.println("Enter numerator, denominator of your fraction 2");
 		Fraction num1 = new Fraction(input.nextInt(),input.nextInt());
+>>>>>>> master
 
 		System.out.println("The sum of your fractions is: " + num2.add(num2,num1));
 		System.out.println("The difference of your fractions is: " + num2.subtract(num2,num1));
