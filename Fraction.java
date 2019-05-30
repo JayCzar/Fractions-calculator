@@ -97,7 +97,7 @@ public class Fraction {
 
 		Scanner input = new Scanner(System.in);
 		Fraction num2;
-		// System.out.println("Enter numerator, denominator of your fraction");
+		//System.out.println("Enter numerator, denominator of your fraction");
 		num2 = new Fraction(6,8);
 		Fraction num1 = new Fraction(6,14);
 
